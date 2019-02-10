@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Post from './components/Post';
 import Posts from './components/Posts';
 import CreatePost from './components/CreatePost';
+import Footer from './components/Footer';
 
 class App extends Component {
 	state = {
@@ -53,6 +54,7 @@ class App extends Component {
 						render={(props) => <Post {...props} posts={this.state.posts} loadPosts={this.loadPosts} />} />
 						<Route path="/posts" component={Posts} />
 						<Route path="/create" component={CreatePost} />
+						<Footer />
 					</div>
 				</Switch>
 			</BrowserRouter>

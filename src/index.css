@@ -191,6 +191,7 @@ header {
 
 .center-createpost-div {
   padding: 1em;
+  min-height: calc(100vh - 50px);
   box-sizing: border-box;
   background-color: var(--div-color);
   text-align: center;
@@ -198,30 +199,65 @@ header {
   flex-direction: column;
   max-width: 1024px;
   margin: auto;
+  animation: slideUp .2s ease-out;
 }
 
 .center-createpost-div input {
   outline: none;
   max-width: 500px;
   width: 100%;
-  margin: 0 auto 10px;
+  box-sizing: border-box;
+  margin: 0 auto 10px auto;
+  padding-left: 10px;
 }
 
 .center-createpost-div input:focus {
-  border: 3px solid var(--body-color);
+  border: 3px solid darkorange;
 }
 
 .center-createpost-div button {
+  animation: slideUp .3s ease-out;
   box-shadow: var(--button-shadow);
+  font-family: var(--button-font);
+  padding: 0.15em 1em;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  color: #000;
+  text-decoration: none;
+  margin: 20px auto 0;
   border-radius: 5px;
   border: none;
   background-color: darkorange;
   font-weight: bold;
-  margin: 10px auto 0;
   transition: all .2s;
 }
 
 .center-createpost-div button:hover {
   transform: scale(0.9);
   cursor: pointer;
+}
+
+footer {
+  box-sizing: border-box;
+  padding: .5em;
+  min-height: 30vh;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.5em;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--post-title-font);
+}
+
+.footer-tag {
+  box-sizing: border-box;
+  width: 50%;
+  padding: 1.5em;
+}
+
+.footer-credits {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
 }
