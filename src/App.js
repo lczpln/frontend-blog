@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 import socket from 'socket.io-client';
 
 import api from './services/api';
@@ -10,17 +11,20 @@ import Post from './components/Post';
 import Posts from './components/Posts';
 import CreatePost from './components/CreatePost';
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 
 class App extends Component {
 	state = {
-		posts: []
+		posts: [],
+		isLoading: false,
 	}
 
 	loadPosts = async () => {
+		await this.setState({ isLoading: !this.state.loading })
 		try {
 			const response = await api.get('/posts');
 
-			this.setState({ posts: response.data })
+			this.setState({ posts: response.data, isLoading: !this.state.isLoading })
 		} catch (e) {
 			alert('Conexão com a API mal sucedida.')
 		}
@@ -32,7 +36,7 @@ class App extends Component {
 	}
 
 	loadRealTime = () => {
-		const io = socket('http://localhost:3001');
+		const io = socket('https://api-blog-lczpln.herokuapp.com/');
 
 		io.on('newPost', data => {
 			this.setState({ posts: [data, ...this.state.posts] })
@@ -44,14 +48,18 @@ class App extends Component {
 			<BrowserRouter>
 				<Switch>
 					<div className="App">
+						{this.state.isLoading ? <Loading /> : null}
 						<Route path="/" component={Navbar} />
 						<Route
 							exact path="/"
 							render={(props) => <Home {...props} posts={this.state.posts} />}
 						/>
-						<Route 
-						path="/post/:url" 
-						render={(props) => <Post {...props} posts={this.state.posts} loadPosts={this.loadPosts} />} />
+						<Route
+							path="/post/:url"
+							render={(props) => <Post {...props}
+							posts={this.state.posts}
+							loadPosts={this.loadPosts} />}
+						/>
 						<Route path="/posts" component={Posts} />
 						<Route path="/create" component={CreatePost} />
 						<Footer />

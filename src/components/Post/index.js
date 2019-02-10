@@ -4,7 +4,6 @@ export default class Post extends React.Component {
 
 	async componentDidMount() {
 		await this.props.loadPosts();
-		console.log(this.props.posts.length)
 	}
 
 	render() {

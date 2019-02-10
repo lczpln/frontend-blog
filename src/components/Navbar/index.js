@@ -3,13 +3,10 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
 export default class Navbar extends Component {
-	componentDidMount() {
-		console.log(this.props)
-	}
 	render() {
 		return (
 			<header>
-				<div className="center-navbar-div">
+				<div className="center-navbar-div" id="header">
 					<div className="left-navbar-div" onClick={() => this.props.history.push('/')}>
 						<img src={require('../../images/blog.svg')} width={30} alt="blog_logo"/>
 						<h1>Blog</h1>
@@ -17,13 +14,13 @@ export default class Navbar extends Component {
 					<div className="right-navbar-div">
 						<ul>
 							<li>
-								<NavLink to="/posts">Posts</NavLink>
+								<NavLink activeClassName="navlink-active-class" exact to="/">All Posts</NavLink>
 							</li>
 							<li>
-								<NavLink to="/posts">Posts</NavLink>
+								<NavLink to="/post" onClick={(e) => e.preventDefault()} activeClassName="navlink-active-class">Post</NavLink>
 							</li>
 							<li>
-								<NavLink to="/posts">Posts</NavLink>
+								<NavLink activeClassName="navlink-active-class" to="/create">Create</NavLink>
 							</li>
 						</ul>
 					</div>

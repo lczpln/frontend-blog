@@ -7,7 +7,7 @@ const Home = (props) => (
       <article className="post-article" key={post._id}>
         <h2>{post.title}</h2>
         <span className="post-article-content">{post.content}</span>
-        <NavLink to={`/post/${post.url}`}>Ver mais</NavLink>
+        <NavLink onClick={() => window.scrollTo(0, 0)} to={`/post/${post.url}`}>Ver mais</NavLink>
       </article>
     ))}
   </div>

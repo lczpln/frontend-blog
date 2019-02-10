@@ -40,6 +40,17 @@ header {
   position: relative;
 }
 
+.loading-div {
+  margin-top: 50px;
+  height: calc(100vh - 50px);
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .center-navbar-div {
   padding: 0 1.5em;
   max-width: 1024px;
@@ -68,26 +79,42 @@ header {
 .right-navbar-div {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .right-navbar-div ul {
   display: flex;
+  align-items: center;
   list-style: none;
   margin: 0;
+  height: 100%;
 }
 
 .right-navbar-div ul > li {
-  padding: 0 .5em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .right-navbar-div ul > li a {
+  cursor: pointer;
+  padding: 0 .5em;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 100%;
   text-decoration: none;
   color: var(--text-color);
 }
 
+.navlink-active-class {
+  background-color: var(--text-color);
+  color: var(--body-color) !important;
+}
+
 .right-navbar-div ul > li a:hover {
   border-bottom: 2px solid var(--text-color);
-  color: var(--text-color);
 }
 
 .center-content-div {
