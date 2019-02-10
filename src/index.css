@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Roboto');
+
+:root {
+  --header-shadow: 0 1px 0 lightgray;
+  --article-shadow: 0 1px 0 lightgray;
+  --tittle-shadow: 1px 2px 1px lightgray;
+  --button-shadow: 1px 2px 1px lightgray;
+
+  --body-color: #fff;
+  --navbar-color: #fafafa;
+  --selected-link-color: #656C51;
+  --text-color: rgb(110, 10, 204);
+  --div-color: #fafafa;
+
+  --header-font: 'Lato', sans-serif;
+  --post-title-font: 'Roboto', sans-serif;
+  --post-font: 'Nunito', sans-serif;
+  --button-font: 'Nunito', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  background-color: var(--body-color);
+}
+
+header {
+  background-color: var(--navbar-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  box-sizing: border-box;
+  box-shadow: var(--header-shadow);
+  font-family: var(--header-font);
+  position: relative;
+}
+
+.center-navbar-div {
+  padding: 0 1.5em;
+  max-width: 1024px;
+  width: 100%;
+  height: 50px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.left-navbar-div {
+  align-items: center; 
+  cursor: pointer;
+}
+
+.left-navbar-div img {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.left-navbar-div h1 {
+  margin: 0;
+  display: inline-block;
+}
+
+.right-navbar-div {
+  display: flex;
+  align-items: center;
+}
+
+.right-navbar-div ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+}
+
+.right-navbar-div ul > li {
+  padding: 0 .5em;
+}
+
+.right-navbar-div ul > li a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.right-navbar-div ul > li a:hover {
+  border-bottom: 2px solid var(--text-color);
+  color: var(--text-color);
+}
+
+.center-content-div {
+  min-height: calc(100vh - 50px);
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+  box-sizing: border-box;
+  padding-bottom: 1em;
+  background-color: var(--div-color);
+}
+
+.center-content-div .post-title {
+  box-sizing: border-box;
+  box-shadow: 1px 2px 1px lightgray;
+  background-color: var(--text-color);
+  width: 100%;
+  color: #fff;
+}
+
+.post-title {
+  margin: 0;
+  padding: 0 2em;
+  width: 100vw;
+  max-width: 1024px;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideUp .2s ease-out;
+  font-family: var(--post-title-font);
+}
+
+.post-title h1 {
+  margin-top: 0;
+  font-size: 4em;
+}
+
+.post-content-div {
+  margin-top: 30px;
+  padding: 0 1em;
+  font-size: 1.3em;
+  font-family: var(--post-font);
+  line-height: 1.6em;
+  animation: slideUp .3s ease-out;
+}
+
+@keyframes slideUp {
+  0% {transform: translate(0, 50vh)}
+  100% {transform: translate(0, 0)}
+}
+
+.post-article {
+  box-shadow: var(--article-shadow);
+  display: flex;
+  padding: 1em; 
+  flex-direction: column;
+  text-overflow: ellipsis;
+  border-bottom: 2px solid var(--div-color);
+  animation: postIn .3s ease-out;
+}
+
+.post-article h2 {
+  font-family: var(--post-title-font);
+}
+
+.post-article-content {
+  max-height: 70px;
+  line-height: 1.6em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-family: var(--post-font);
+}
+
+@keyframes postIn {
+  0% {transform: translate(-50vh)}
+  100% {transform: translate(0)}
+}
+
+.post-article a {
+  box-shadow: var(--button-shadow);
+  font-family: var(--button-font);
+  padding: 0.15em 1em;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  color: #000;
+  text-decoration: none;
+  margin: 20px auto 0;
+  border-radius: 5px;
+  border: none;
+  background-color: darkorange;
+  font-weight: bold;
+  transition: all .2s;
+}
+
+.post-article a:hover {
+  transform: scale(0.9);
+  cursor: pointer;
+}
+
+.center-createpost-div {
+  padding: 1em;
+  box-sizing: border-box;
+  background-color: var(--div-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  margin: auto;
+}
+
+.center-createpost-div input {
+  outline: none;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto 10px;
+}
+
+.center-createpost-div input:focus {
+  border: 3px solid var(--body-color);
+}
+
+.center-createpost-div button {
+  box-shadow: var(--button-shadow);
+  border-radius: 5px;
+  border: none;
+  background-color: darkorange;
+  font-weight: bold;
+  margin: 10px auto 0;
+  transition: all .2s;
+}
+
+.center-createpost-div button:hover {
+  transform: scale(0.9);
+  cursor: pointer;
+}
