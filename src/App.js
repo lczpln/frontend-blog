@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import ReactLoading from 'react-loading';
 import socket from 'socket.io-client';
 
 import api from './services/api';
