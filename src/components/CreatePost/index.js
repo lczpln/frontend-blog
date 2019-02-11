@@ -13,21 +13,25 @@ export default class CreatePost extends Component {
   createPost = async () => {
     const { title, content, url, author } = this.state;
 
-    if (author === '') this.setState({ author: 'admin' });
+    if (author === '') await this.setState({ author: "admin" });
 
     if (!title.length || !content.length || !url.length) return alert('Verifique os campos vazios');
 
     const data = { "title": title, "content": content, "url": url, "author": author }
     try {
-      await api.post('/posts', data);
+      const response = await api.post('/posts', data);
 
-      this.setState({
-        title: '',
-        content: '',
-        url: '',
-        author: '',
-      });
+      if (!response) throw new Error(`Um post com essa url já foi criado.`);
 
+        await this.setState({
+          title: '',
+          content: '',
+          url: '',
+          author: '',
+        });
+
+        await alert('Post criado com sucesso!');
+        return this.props.history.push('/');
     } catch (e) {
       alert(`Erro ao criar novo post => ${e}`);
     }
@@ -42,7 +46,9 @@ export default class CreatePost extends Component {
           onChange={(e) => { this.setState({ title: e.target.value }) }}
         />
         <label>Post Content</label>
-        <input
+        <textarea
+          id="post-content"
+          type="text"
           placeholder="put your post body"
           onChange={(e) => { this.setState({ content: e.target.value }) }}
         />

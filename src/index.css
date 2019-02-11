@@ -272,19 +272,53 @@ a::selection {
   flex-direction: column;
   max-width: 1024px;
   margin: auto;
+  font-size: 1.2em;
+  font-family: var(--post-title-font);
   animation: slideUp .2s ease-out;
 }
 
-.center-createpost-div input {
+.center-createpost-div input, textarea {
   outline: none;
   max-width: 500px;
   width: 100%;
   box-sizing: border-box;
   margin: 0 auto 10px auto;
   padding-left: 10px;
+  max-height: 50px;
 }
 
-.center-createpost-div input:focus {
+#post-content {
+  word-break: break-all;
+  word-wrap: break-word;
+  resize: none;
+  font-family: var(--post-font);
+}
+
+#post-content::-webkit-scrollbar {
+  background: #fafafa;
+  width: 7px;
+  cursor: pointer;
+  
+}
+
+#post-content::-webkit-scrollbar-button {
+  background: lightgray; 
+  height: 10px;
+  cursor: pointer;
+}
+
+#post-content::-webkit-scrollbar-thumb {
+  background: darkorange;
+  cursor: pointer;
+}
+
+#post-content:focus {
+  height: 30vh;
+  max-height: 30vh;
+  transition: max-height .2s ease-out;
+}
+
+.center-createpost-div input:focus, textarea:focus {
   border: 3px solid darkorange;
 }
 
@@ -292,7 +326,7 @@ a::selection {
   animation: slideUp .3s ease-out;
   box-shadow: var(--button-shadow);
   font-family: var(--button-font);
-  padding: 0.15em 1em;
+  padding: 0.5em 1em;
   width: 100%;
   max-width: 300px;
   text-align: center;
@@ -304,6 +338,7 @@ a::selection {
   background-color: darkorange;
   font-weight: bold;
   transition: all .2s;
+  outline: none;
 }
 
 .center-createpost-div button:hover {

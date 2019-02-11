@@ -37,8 +37,8 @@ export default class Navbar extends Component {
 					</div>
 					<div className="right-navbar-div">
 						{this.state.collapsed
-							? <i class="fas fa-times" id="close" onClick={this.collapseNavbar}></i>
-							: <i class="fas fa-bars" id="hamburgger" onClick={this.collapseNavbar}></i>
+							? <i className="fas fa-times" id="close" onClick={this.collapseNavbar}></i>
+							: <i className="fas fa-bars" id="hamburgger" onClick={this.collapseNavbar}></i>
 
 						}
 						{this.selectUserComponent("desktop")}
