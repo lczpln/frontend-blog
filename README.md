@@ -1,2 +1,2 @@
-App site: https://app-blog-lczpln.herokuapp.com/
+App site: https://blog-app-lczpln.firebaseapp.com/
 
